@@ -62,6 +62,7 @@ let ignoredNodeEnvironments;
 let serveDocs;
 let specOutputPath;
 let specOutputFileBehavior;
+let shouldDocumentPath;
 /**
  * @type { typeof import('./index').SwaggerUiOptions }
 */
@@ -173,7 +174,7 @@ function prepareSpec() {
   endpoints.forEach(endpoint => {
     const params = [];
     let path = endpoint.path;
-    const matches = path.match(/:([^/]+)/g);
+    const matches = shouldDocumentPath ? shouldDocumentPath(path) : path.match(/:([^/]+)/g);
     if (matches) {
       matches.forEach(found => {
         const paramName = found.substr(1);
@@ -398,6 +399,7 @@ function handleResponses(expressApp,
   specOutputPath = options.specOutputPath;
   specOutputFileBehavior = options.specOutputFileBehavior;
   swaggerDocumentOptions = options.swaggerDocumentOptions;
+  shouldDocumentPath = options.shouldDocumentPath;
   
   loadSpecOutputPathContent();
   updateDefinitionsSpec(options.mongooseModels);

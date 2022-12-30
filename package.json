@@ -1,5 +1,5 @@
 {
-  "name": "express-oas-generator",
+  "name": "@lambdacurry/express-oas-generator",
   "version": "1.0.46",
   "description": "Module to automatically generate OpenAPI (Swagger) specification for existing ExpressJS 4.x REST API applications",
   "main": "index.js",
@@ -15,7 +15,8 @@
     "test": "npm run lint -- --fix && npm run cve-check && NODE_ENV=test npm run jasmine",
     "send-coverage": "nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
     "pp": "npm version patch && npm publish && git push --follow-tag",
-    "generate-docs": "jsdoc -c jsdoc.json"
+    "generate-docs": "jsdoc -c jsdoc.json",
+    "publish": "npm version patch && npm publish && git push --follow-tag"
   },
   "repository": {
     "type": "git",

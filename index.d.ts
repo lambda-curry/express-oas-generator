@@ -58,6 +58,8 @@ export interface HandleResponsesOptions {
 	specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR | string;
 
 	swaggerDocumentOptions: SwaggerUiOptions;
+
+	shouldDocumentPath?: (path: string) => boolean;
 }
 
 /**
